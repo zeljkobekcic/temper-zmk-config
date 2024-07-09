@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 ZMK_APP_PATH="$HOME/Projects/Private/zmk/app"
 ZMK_CONFIG_PATH="$HOME/Projects/Private/temper-zmk-config/config"
 ZMK_EXTRA_MODULES_PATH="$HOME/Projects/Private/temper-zmk-config"
