@@ -11,9 +11,10 @@ mkdir -p "$OUTPUT_DIRECTORY"
 cd "$ZMK_APP_PATH"
 source ../.venv/bin/activate
 
-yq '.include | map(.board + " " + .shield)' "$ZMK_EXTRA_MODULES_PATH/build.yaml" | while read line; do
-	board=$(echo $line | awk '{ print $2 }')
-	shield=$(echo $line | awk '{ print $3 }')
+# format to json lines then read ech json object per loop iterationn
+yq -o=json -I=0 '.include[]' "$ZMK_EXTRA_MODULES_PATH/build.yaml" | while read line; do
+	board=$(echo $line | jq -r '.board')
+	shield=$(echo $line | jq -r '.shield')
 
 	west build -d "build/$shield-$board" -b $board --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_PATH" -DSHIELD=$shield -DZMK_EXTRA_MODULES="$ZMK_EXTRA_MODULES_PATH"
 	cp "build/$shield-$board/zephyr/zmk.uf2" "$OUTPUT_DIRECTORY/$shield-$board.uf2"
