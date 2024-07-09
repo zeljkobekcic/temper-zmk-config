@@ -6,3 +6,6 @@ config SHIELD_TEMPER_LEFT
 
 config SHIELD_TEMPER_RIGHT
     def_bool $(shields_list_contains,temper_right)
+
+config SHIELD_TEMPER_DONGLE
+    def_bool $(shields_list_contains,temper_dongle)
