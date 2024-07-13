@@ -7,6 +7,6 @@ requires: [pro_micro]
 features:
   - keys
 siblings:
-  - temper_left
-  - temper_right
-  - temper_dongle
+  - temper_dongle_left
+  - temper_dongle_right
+  - temper_dongle_dongle
