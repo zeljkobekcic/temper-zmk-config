@@ -14,7 +14,7 @@ yq -o=json -I=0 '.include[]' "$ZMK_EXTRA_MODULES_PATH/build.yaml" | while read l
 	board=$(echo $line | jq -r '.board')
 	shield=$(echo $line | jq -r '.shield')
 
-	west build -d "build/$shield-$board" -b $board --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_PATH" -DSHIELD=$shield -DZMK_EXTRA_MODULES="$ZMK_EXTRA_MODULES_PATH"
+	west build -d "build/$shield-$board" -b $board --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_PATH" -DSHIELD=$shield # -DZMK_EXTRA_MODULES="$ZMK_EXTRA_MODULES_PATH"
 	cp "build/$shield-$board/zephyr/zmk.uf2" "$OUTPUT_DIRECTORY/$shield-$board.uf2"
 done
 
