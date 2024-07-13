@@ -1,6 +1,6 @@
 # Temper ZMK Config
 
-This is my personal ZMK config for the [temper](https://github.com/raeedcho/temper).
+This is my personal ZMK config for the [temper](https://github.com/raeedcho/temper). This repository contains zmk configuration for the Temper keyboard using two microcontrollers and additionally on configuration using a dongle which is connected to your computer via cable.
 
 ## How to build locally
 
