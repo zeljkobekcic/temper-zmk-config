@@ -11,8 +11,8 @@ mkdir -p "$OUTPUT_DIRECTORY"
 
 	# format to json lines then read ech json object per loop iterationn
 	yq -o=json -I=0 '.include[]' "$ZMK_CONFIG_ROOT_PATH/build.yaml" | while read -r line; do
-		board=$(echo "$line" | jq -r '.board')
-		shield=$(echo "$line" | jq -r '.shield')
+		board=$(echo "$line" | yq -p=json '.board')
+		shield=$(echo "$line" | yq -p=json '.shield')
 
 		west build -d "build/$shield-$board" -b "$board" --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_ROOT_PATH/config" -DSHIELD="$shield"
 		cp "build/$shield-$board/zephyr/zmk.uf2" "$OUTPUT_DIRECTORY/$shield-$board.uf2"
