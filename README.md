@@ -4,15 +4,18 @@ This is my personal ZMK config for the [temper](https://github.com/raeedcho/temp
 
 ## How to build locally
 
-Additional requirements: `yq`, `jq`
+1. Setup ZMK for local development first. Follow therfore precisely the documentation: <https://zmk.dev/docs/development/setup/native>
+2. Additional requirements: `yq`, `jq`
+3. Change the paths in the environment variables in the `build.sh` file to match your paths.
+4. Run the script
 
-Change the paths in the environment variables in the `.build.sh`, then run it.
+   ```shell
+   ./build.sh
+   ```
 
-```shell
-./build.sh
-```
+   This will create a directory called `output` and in there are all the `.uf2` files
 
-This will create a directory called `output` and in there are all the `.uf2` files
+5. Flash your microcontrollers with the resulting `.uf2` files
 
 ## Extra notes on the dongle part
 
