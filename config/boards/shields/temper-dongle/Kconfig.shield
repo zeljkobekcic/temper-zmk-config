@@ -1,11 +1,11 @@
 # Copyright (c) 2020 Pete Johanson
 # SPDX-License-Identifier: MIT
 
-config SHIELD_TEMPER_LEFT
+config SHIELD_TEMPER_DONGLE_LEFT
     def_bool $(shields_list_contains,temper_dongle_left)
 
-config SHIELD_TEMPER_RIGHT
+config SHIELD_TEMPER_DONGLE_RIGHT
     def_bool $(shields_list_contains,temper_dongle_right)
 
-config SHIELD_TEMPER_DONGLE
+config SHIELD_TEMPER_DONGLE_DONGLE
     def_bool $(shields_list_contains,temper_dongle_dongle)
