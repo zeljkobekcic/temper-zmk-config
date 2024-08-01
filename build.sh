@@ -14,7 +14,8 @@ mkdir -p "$OUTPUT_DIRECTORY"
 		board=$(echo "$line" | yq -p=json '.board')
 		shield=$(echo "$line" | yq -p=json '.shield')
 
-		west build -d "build/$shield-$board" -b "$board" --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_ROOT_PATH/config" -DSHIELD="$shield"
+		west build -d "build/$shield-$board" -b "$board" --pristine -- -DZMK_CONFIG="$ZMK_CONFIG_ROOT_PATH/config" -DSHIELD="$shield" > "$OUTPUT_DIRECTORY/$shield-$board.log"
+
 		cp "build/$shield-$board/zephyr/zmk.uf2" "$OUTPUT_DIRECTORY/$shield-$board.uf2"
 	done
 
